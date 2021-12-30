@@ -2,8 +2,6 @@
 
 ## Running the example
 
-Before anything,
-
 TSDX does not seem to handle peer dependencies, but we still need to make sure SubFormik is going to use the same Formik context as the parent app.
 Therefore it is necessary to follow VERY carefully the following steps:
 
@@ -15,11 +13,11 @@ cd /path/to/subformik/repo/
 
 rm -fr node_modules example/node_modules
 
-# Forces yarn to add formik. This is necessarly for the first compilation.
+# Forces yarn to add formik. This is necessary for the first compilation.
 # As a side effect, it also does `yarn install`.
 yarn add -P formik
 
-# Now that we compiled it, we need to remove formik, so that is uses the peer formik of the parent app.
+# Now that we compiled it, we need to remove Formik, so that it uses the peer formik of the parent app.
 rm -fr node_modules/formik/
 
 # Go to example and run it
