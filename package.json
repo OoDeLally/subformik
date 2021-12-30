@@ -76,5 +76,13 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21"
-  }
+  },
+  "keywords": [
+    "formik",
+    "subformik",
+    "subform",
+    "sub-form",
+    "nested",
+    "nested form"
+  ]
 }
