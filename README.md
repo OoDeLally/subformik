@@ -1,11 +1,11 @@
 # SubFormik - Nested reusable forms for Formik
 
-[Demo](https://codepen.io/OodeLally-Github/pen/vYedMNM).
+[Demo](https://codepen.io/OodeLally-Github/pen/vYedMNM)
 
 ## Rationale
 
 Vanilla Formik stores the form's state as a unique object.
-When the form's state is highly structured, it starts to be hard to maintain nested states, because fields must access their own little state from the state's root e.g. `<Field name="user[3].books[2].title" />`.
+When the form's state is highly structured, it gets hard to maintain nested states, because fields must access their own little state from the absolute root e.g. `<Field name="user[3].books[2].title" />`.
 In addition, it makes it tedious to create reusable forms.
 
 SubFormik brings the simplicity, flexibility and reusability of having subforms which only have to care about their own state and validation.
@@ -74,7 +74,9 @@ This design allows you to make each subform only care about its own state, its o
 
 ### Roadmap
 
-Nothing specific for now.
+* I dont like the name of `<SubFormikRoot />`. If you have a suggestion, feel free to propose.
+
+Beside that, nothing specific for now.
 
 It is very possible that a feature available with vanilla Formik is currently not with SubFormik.
 If you think such feature can benefit everybody, feel free to ask for it, or propose a PR.
