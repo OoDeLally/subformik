@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Formik, FormikConfig, FormikErrors, useFormikContext } from 'formik';
-import { chain, get } from 'lodash';
+import get from 'lodash/get';
+import transform from 'lodash/transform';
 import React, {
   ReactElement,
   useCallback,
@@ -46,10 +47,16 @@ export function SubFormik<Values>({
   const value = get(rootValues, path);
   const error = useMemo<FormikErrors<Values>>(
     () =>
-      chain(rootErrors)
-        .pickBy((_val, key) => key.startsWith(path))
-        .mapKeys((_val, key) => key.substring(path.length + 1))
-        .value() as any as FormikErrors<Values>,
+      transform(
+        rootErrors,
+        (errors, val, key: string) => {
+          if (key.startsWith(path)) {
+            const localKey = key.substring(path.length + 1) as keyof Values;
+            errors[localKey] = val as any;
+          }
+        },
+        {} as FormikErrors<Values>
+      ),
     [rootErrors, path]
   );
   // console.log("error", error);

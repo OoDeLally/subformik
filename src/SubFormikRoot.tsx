@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Formik, FormikConfig, FormikErrors, yupToFormErrors } from 'formik';
-import { get, mapKeys } from 'lodash';
+import get from 'lodash/get';
+import mapKeys from 'lodash/mapKeys';
 import React, { ReactElement, useCallback } from 'react';
 import * as Yup from 'yup';
 import {
