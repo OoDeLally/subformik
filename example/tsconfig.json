@@ -6,8 +6,6 @@
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitAny": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
     "removeComments": true,
     "strictNullChecks": true,
     "preserveConstEnums": true,
