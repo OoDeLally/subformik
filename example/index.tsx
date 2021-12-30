@@ -4,12 +4,7 @@ import { useState } from 'react';
 import 'react-app-polyfill/ie11';
 import * as ReactDOM from 'react-dom';
 import { SubFormikRoot } from 'subformik';
-import { BookSubFormik } from './BookSubFormik';
-
-interface Book {
-  title: string;
-  year: number;
-}
+import { Book, BookSubFormik } from './BookSubFormik';
 
 interface FormValue {
   authorName: string;
@@ -35,7 +30,13 @@ const App = () => {
 
   return (
     <div>
-      <SubFormikRoot initialValues={initialValues} onSubmit={setSubmittedValue}>
+      <SubFormikRoot
+        initialValues={initialValues}
+        onSubmit={setSubmittedValue}
+        validateOnChange={true}
+        validateOnBlur={true}
+        validateOnMount={true}
+      >
         <FormInner />
       </SubFormikRoot>
       {submittedValue && (
@@ -53,7 +54,7 @@ const FormInner = () => {
   const { books } = values;
   return (
     <Form>
-      <Field name="authorName" />
+      <Field name="authorName" style={{ marginBottom: '1em' }} />
       {books.map((book, bookIndex) => (
         <BookSubFormik key={bookIndex} path={`books[${bookIndex}]`} />
       ))}

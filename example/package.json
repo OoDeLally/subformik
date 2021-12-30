@@ -10,7 +10,8 @@
   "dependencies": {
     "formik": "^2.2.9",
     "react-app-polyfill": "^1.0.0",
-    "subformik": "./.."
+    "subformik": "./..",
+    "yup": "^0.32.11"
   },
   "alias": {
     "react": "../node_modules/react",
