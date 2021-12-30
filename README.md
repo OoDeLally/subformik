@@ -1,6 +1,6 @@
 # SubFormik - Nested reusable forms for Formik
 
-Demo is available here: [Demo](FIXME).
+[Demo](https://codepen.io/OodeLally-Github/pen/vYedMNM).
 
 ## Rationale
 
@@ -47,6 +47,7 @@ You can see that `<Field name="age" />` is local to its closest `SubFormik` cont
 `<SubFormik />` creates a nested `<Formik />` context under the hood.
 You can then use `useFormikContext()` exactly the same way you would do with vanilla Formik.
 
+A more complete working demo is available here: [Demo](https://codepen.io/OodeLally-Github/pen/vYedMNM).
 
 ### Validation and error management
 
