@@ -50,27 +50,25 @@ You can then use `useFormikContext()` exactly the same way you would do with van
 
 ### Validation and error management
 
-Every `<SubFormik />` registers their validation function/schema to a context exposed by `<SubFormikRoot />`.
-The validation is done once for the whole form by `<SubFormikRoot />`, and all errors in the root and in the nested `<SubFormik />` are collected and aggregated to a unique error object of the following form:
-
+All provided validation functions and schemas are run and the results are aggregated into a global error object:
 ```ts
-# Example for the above setup.
+const { errors } = useFormikContext() // done at the root level
 {
   city: "City must be longer than 1 character",
   'user[3].age': 'Age cannot be negative',
 }
 ```
 
-However, if you fetch `const { errors } = useFormikContext()` from inside the nested `<SubFormik path="user[3]" />`, you will receive a different local error object with local keys:
+Then re-dispatched to the subforms:
 
 ```ts
-# Example for the above setup.
+const { errors } = useFormikContext() // done at the `user` subform level
 {
   age: 'Age cannot be negative',
 }
 ```
 
-This design allows you to make subforms only care about their own state, their own validation strategy, and their own errors.
+This design allows you to make each subform only care about its own state, its own validation strategy, and its own errors.
 
 
 ### Roadmap
