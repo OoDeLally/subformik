@@ -25,5 +25,8 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Install formik peer dep
+        run: yarn add -P formik
+
       - name: Build
         run: yarn build
