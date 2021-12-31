@@ -19,14 +19,15 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: Install formik peer dep
+        run: yarn add -P formik
+
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
       - name: Lint
         run: yarn lint
 
-      - name: Install formik peer dep
-        run: yarn add -P formik
 
       - name: Build
         run: yarn build
